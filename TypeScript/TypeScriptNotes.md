@@ -100,6 +100,13 @@
     }
     // By adding ? the param is optional but the value is undefined
     ```
+    - Default Value
+    ``` ts
+    function calculateTax(income: number, taxYear: number = 2023): number {
+      return 3
+    }
+    // By adding ? the param is optional but the value is undefined
+    ```
 3.  Objects
     - Normal Object
     ``` ts
@@ -130,7 +137,28 @@
         }
 
     ```
-3.  Type Alias
+    - Getting object with specific values
+    ``` ts
+    function createUser({name: string, age: number}): void{
+      // creating user
+    }
+    ```
+    - Object returning object with specific values
+    ``` ts
+    function createCourse():{name: string, price: number}{
+      return {name: "Type script", price: 200}
+    }
+    ```
+3.  Objects
+    - Array
+    ``` ts
+    const superHero: string[] = []
+    // or
+    const superHero: Array<number> = []
+    // arrays with arrays
+    const superHero: number[][] = []
+    ```
+4.  Type Alias
     - In Object
     - If we use the above implementation we will have to repeat the type everywhere, so in that case we can use typ alias
     ``` ts
@@ -141,7 +169,7 @@
 
     let employee: Employee = {id: 1, name: "Raazi"}
     ```
-3.  Union Types
+5.  Union Types
     - Params can be different values
     ``` ts
     function kgToLbs (weight: number | string): number {
@@ -153,7 +181,7 @@
     kgToLbs(10)
     kgToLbs("10kg")
     ```
-4.  Type Intersection
+6.  Type Intersection
     ``` ts
     type Draggable {
       drag: ()=> void
@@ -170,7 +198,7 @@
       resize: () => {}
     }
     ```
-5.  Literal types
+7.  Literal types
     ``` ts
     let quantity: 50 == 50
 
