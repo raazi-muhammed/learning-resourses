@@ -212,3 +212,138 @@
     ```
 6.  Nullable type
 7.  Optional property, element, call
+8.  interface
+    - sample
+    ``` ts
+    interface User {
+      readonly dbId: number,
+      email: string,
+      userId: number,
+      googleId?: string,
+
+      startTrail: ()=> string,
+      // or
+      startTrail(): string,
+    }
+    ```
+    - reopening interface
+    ``` ts
+    interface User {
+      readonly dbId: number,
+      email: string,
+      userId: number,
+      googleId?: string,
+
+      startTrail: ()=> string,
+      // or
+      startTrail(): string,
+    }
+
+    interface User {
+      gitHubToken: string
+    }
+
+    // now the user will have value from both
+    ```
+    - inheritance
+    ``` ts
+    interface Admin extends User {
+      role: "admin" | "ta" | "learner"
+    }
+    ```
+8.  Class
+    - sample
+    ``` ts
+    class User {
+      email:  string
+      name: string
+      
+      constructor(email: string, name: string){
+        this.email= email
+        this.name = name
+      }
+    }
+
+    const raazi = new User("raazi@g", "raazi")
+    ```
+    - Access modifiers (private, public, protected)
+    ``` ts
+    class User {
+      email:  string 
+      name: string
+      private age: number = 18
+      // private can be only exceeded from the class itself
+
+      protected isPaid: boolean = false
+      // protected can be exceeded from inherited class and the class itself only
+
+      // everything else is public
+
+      constructor(email: string, name: string){
+        this.email= email
+        this.name = name
+      }
+    }
+
+    const raazi = new User("raazi@g", "raazi")
+    ```
+    - Getters and Setters
+    ``` ts
+    class User {
+      email:  string 
+      name: string
+      private age: number = 18
+
+      get getAge(): number {
+        return this.age
+      }
+
+      // if you set a return type, it will not work
+      set setAge(age){
+        this.age = age
+      }
+
+    }
+
+    const raazi = new User("raazi@g", "raazi")
+    ```
+    - Abstract class
+    - overriding, difference b/w class and abstract class
+    ``` ts
+    abstract class TakePhoto {
+      constructor(
+        public cameraMode: string,
+        public filter: string
+      )
+      abstract getSepia(): void
+    }
+
+    class instagram extends TakePhoto {
+      coonstructor (
+        public cameraMode: string,
+        public filter: string,
+        public burst: number
+      ){
+        super (cameraMode, filter, burst)
+      }
+
+      getSepia(): void {
+        console.log("sepia)
+      }
+    }
+    ```
+8.  Generics
+    - sample
+    ``` ts
+    class User {
+      email:  string
+      name: string
+      
+      constructor(email: string, name: string){
+        this.email= email
+        this.name = name
+      }
+    }
+
+    const raazi = new User("raazi@g", "raazi")
+    ```
