@@ -184,3 +184,56 @@
     ```
 6.  Nullable type
 7.  Optional property, element, call
+8.  ## Generics
+    - If you want to return a sting or array etc... when string or array comes as input respectively. the below code will work
+    ``` ts
+    function identify(val:any): any{
+      return val
+    }
+    // input can be anything as well as return value
+    ```
+    - But there are some problems, a better idea is to use generics
+    ``` ts
+    function identify<Type>(val:Type): Type{
+      return val
+    }
+    // if the input is str, return is also str
+    ```
+    - Array return value
+    ``` ts
+    function getProduct<Type>(val:Type[]): Type{
+      return val[3]
+    }
+    ```
+    - In arrow functions
+    ``` ts
+    const getProduct = <Type>(products: Type[]): Type =>{
+      // code
+    }
+    ```
+    - Generics Extends
+    - Generics Class
+8.  ## Narrowing 
+    - Type guards (typeof)
+    - in operator
+    ```ts
+
+    interface User{
+      name: string,
+    }
+    
+    interface User{
+      name: string,
+      isAdmin: boolean
+    }
+
+    function isAdminAccount(account: User | Admin){
+      if ("isAdmin" in account) {
+        return account.isAdmin
+      }
+    }
+    ```
+    - instanceof
+    - type predicates
+    - Discriminated union
+    - Exhaustive checking
